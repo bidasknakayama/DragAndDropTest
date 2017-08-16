@@ -21,6 +21,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using DragAndDropTest.Model;
 using Windows.ApplicationModel.DataTransfer;
+using System.Diagnostics;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -52,8 +53,13 @@ namespace DragAndDropTest
             {
                 if (draggedItem != null)
                 {
+
                     var sourceCategory = draggedItem.Cate;
+
+                    // Exception error
                     var child = (((VariableSizedWrapGrid)sender).Children[0] as GridViewItem).Content as Book;
+
+                   
                     draggedItem.Cate = child.Cate;
 
                     child.Cate.BookList.Add(draggedItem);
@@ -63,6 +69,7 @@ namespace DragAndDropTest
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
             }
         }
 

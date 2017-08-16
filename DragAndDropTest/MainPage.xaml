@@ -36,10 +36,10 @@
                                   CanDragItems="True"
                                   DragItemsStarting="ItemsByCategory_DragItemsStarting">
                 <GridView.GroupStyle>
-                    <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle HidesIfEmpty="False">
                         <GroupStyle.HeaderTemplate>
                             <DataTemplate>
-                                <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="0">
+                                <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Width="200" Margin="0">
                                     <TextBlock Text="{Binding Name}" Foreground="Gray" FontSize="25" Margin="5"></TextBlock>
                                 </Grid>
                             </DataTemplate>
@@ -57,7 +57,10 @@
                         </GroupStyle.ContainerStyle>
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid Drop="VariableSizedWrapGrid_Drop" AllowDrop="True" DragOver="VariableSizedWrapGrid_DragOver" />
+                                <VariableSizedWrapGrid 
+                                    MinWidth="200" MinHeight="200" Background="Green" Opacity="0.5"
+                                    Drop="VariableSizedWrapGrid_Drop" 
+                                    AllowDrop="True" DragOver="VariableSizedWrapGrid_DragOver" />
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
